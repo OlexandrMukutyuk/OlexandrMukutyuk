@@ -2,8 +2,8 @@ name: 📈 GitHub Metrics
 
 on:
   schedule:
-    - cron: "0 4 * * *" # Щодня о 4:00 ранку UTC
-  workflow_dispatch: # Дозволяє запускати вручну з GitHub UI
+    - cron: "0 4 * * *"
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -25,8 +25,12 @@ jobs:
           token: ${{ secrets.GH_STATS_TOKEN }}
           filename: metrics.svg
           output_action: file
+          output_dir: ./ # ⬅️ Зберігає в корінь репозиторію
           base: activity, community, repositories, metadata
           config_timezone: Europe/Kyiv
+
+      - name: List files (debug)
+        run: ls -alh
 
       - name: Commit & Push metrics.svg
         run: |
