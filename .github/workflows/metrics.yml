@@ -2,8 +2,8 @@ name: 📈 GitHub Metrics
 
 on:
   schedule:
-    - cron: "0 4 * * *"
-  workflow_dispatch:
+    - cron: "0 4 * * *" # Щодня о 4:00 ранку UTC
+  workflow_dispatch: # Дозволяє запускати вручну з GitHub UI
 
 permissions:
   contents: write
@@ -13,21 +13,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+          fetch-depth: 0
 
       - name: Generate metrics
         uses: lowlighter/metrics@latest
         with:
-          filename: metrics_renders/metrics.svg
           token: ${{ secrets.GH_STATS_TOKEN }}
+          filename: metrics.svg
+          output_action: file
           base: activity, community, repositories, metadata
           config_timezone: Europe/Kyiv
 
-      - name: Commit & Push
+      - name: Commit & Push metrics.svg
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add metrics_renders/metrics.svg
-          git commit -m "📊 Update GitHub metrics"
+          git add metrics.svg
+          git commit -m "📊 Update GitHub metrics" || echo "No changes"
           git push
