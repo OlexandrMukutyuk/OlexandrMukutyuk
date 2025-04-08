@@ -2,8 +2,8 @@ name: 📈 GitHub Metrics
 
 on:
   schedule:
-    - cron: "0 4 * * *"
-  workflow_dispatch:
+    - cron: "0 4 * * *" # Щодня о 4:00 ранку UTC
+  workflow_dispatch: # Можна запускати вручну з GitHub UI
 
 permissions:
   contents: write
@@ -16,23 +16,20 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          persist-credentials: false
+          persist-credentials: true
           fetch-depth: 0
 
-      - name: Generate metrics
+      - name: Generate metrics.svg
         uses: lowlighter/metrics@latest
         with:
-          token: ${{ secrets.GH_STATS_TOKEN }}
+          token: ${{ secrets.GH_STATS_TOKEN }} # Додай цей токен у Settings → Secrets
           filename: metrics.svg
           output_action: file
-          output_dir: ./ # ⬅️ Зберігає в корінь репозиторію
+          output_dir: ./
           base: activity, community, repositories, metadata
           config_timezone: Europe/Kyiv
 
-      - name: List files (debug)
-        run: ls -alh
-
-      - name: Commit & Push metrics.svg
+      - name: Commit & Push
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
