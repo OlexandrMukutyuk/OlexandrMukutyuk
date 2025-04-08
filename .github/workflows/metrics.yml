@@ -2,8 +2,8 @@ name: 📈 GitHub Metrics
 
 on:
   schedule:
-    - cron: "0 4 * * *" # Щодня о 4:00 ранку UTC
-  workflow_dispatch: # Можна запускати вручну з GitHub UI
+    - cron: "0 4 * * *"
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -22,12 +22,16 @@ jobs:
       - name: Generate metrics.svg
         uses: lowlighter/metrics@latest
         with:
-          token: ${{ secrets.GH_STATS_TOKEN }} # Додай цей токен у Settings → Secrets
+          token: ${{ secrets.GH_STATS_TOKEN }}
           filename: metrics.svg
           output_action: file
           output_dir: ./
           base: activity, community, repositories, metadata
           config_timezone: Europe/Kyiv
+
+      - name: Pull latest changes
+        run: |
+          git pull --rebase origin main
 
       - name: Commit & Push
         run: |
