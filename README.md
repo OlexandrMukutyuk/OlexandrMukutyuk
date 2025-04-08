@@ -5,11 +5,20 @@
 # 💻 Tech Stack:
 ![Laravel](https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white) ![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white) ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) ![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=csharp&logoColor=white) ![Solidity](https://img.shields.io/badge/Solidity-%23363636.svg?style=for-the-badge&logo=solidity&logoColor=white)
 # 📊 GitHub Stats:
-![](https://github-readme-stats.vercel.app/api?username=OlexandrMukutyuk&theme=transparent&hide_border=false&include_all_commits=true&count_private=true)<br/>
+
+<!-- GitHub stats з приватними комітами -->
+![](https://github-readme-stats-olexandrmukutyuk.vercel.app/api?username=OlexandrMukutyuk&theme=transparent&hide_border=false&include_all_commits=true&count_private=true)<br/>
+
+<!-- Стрік активності (залишається такий, бо це окремий сервіс) -->
 ![](https://nirzak-streak-stats.vercel.app/?user=OlexandrMukutyuk&theme=transparent&hide_border=false)<br/>
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=OlexandrMukutyuk&theme=transparent&hide_border=false&include_all_commits=true&count_private=true&layout=compact)
+
+<!-- Найпопулярніші мови -->
+![](https://github-readme-stats-olexandrmukutyuk.vercel.app/api/top-langs/?username=OlexandrMukutyuk&theme=transparent&hide_border=false&include_all_commits=true&count_private=true&layout=compact)
 
 ---
+
+<!-- Лічильник переглядів профілю -->
 [![](https://visitcount.itsvg.in/api?id=OlexandrMukutyuk&icon=0&color=0)](https://visitcount.itsvg.in)
+
 
 <!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
